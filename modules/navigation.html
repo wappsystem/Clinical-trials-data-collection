@@ -1,0 +1,107 @@
+<section>
+    <div id=toolbar__ID>
+        <a id=back__ID>Back</a><span class=tab__ID></span><span id=name__ID></span>
+    </div>
+    <div style='clear:left;'>
+        <div id='nav__ID'>
+            <span>Calendar</span>
+            <ul>
+                <li data-name=adaily>xxx</li>
+                <li data-name=aweekly>xxx</li>
+                <li data-name=amonthly>xxx</li>
+            </ul>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</section>
+<script>
+      function F__ID(){
+            //---------------------------------------------
+            var content_slot=$vm.root_layout_content_slot;
+            VmInclude:__BASE__/vmiis/Common-Code/navigation/link_process.js
+            VmInclude:__BASE__/vmiis/Common-Code/toolbar/back.js
+            VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+            //---------------------------------------------
+            $('#name__ID').text('Clinical Trials Data Collection');
+            //---------------------------------------------
+            $('#D__ID').on('load',function(){
+                  set_permissions();
+            });
+            //---------------------------------------------
+      }
+</script>
+<style>
+      #D__ID,#pvdiv__ID{
+          font-size:10pt;
+          font-family: Verdana,Helvetica,Arial,sans-serif;;
+          background: url("__BASE__/vmiis/SaaS/images/texture.png");
+      }
+      #D__ID{
+          /*background-color:#fff;*/
+      }
+      #toolbar__ID *{
+          margin:0;
+          padding:0;
+          vertical-align:middle;
+      }
+      #toolbar__ID{
+          padding:6px;
+          background-color:#ddd;
+          font-family: Helvetica, Arial, sans-serif;
+          font-size:11pt;
+          border-bottom: 1px solid #aaa;
+      }
+      #toolbar__ID a{
+          background-color:#697b7b;
+          border:0px solid #18ab29;
+          display:inline-block;
+          cursor:pointer;
+          color:#ffffff;
+          font: 9pt/30px Arial;
+          padding-left:15px;
+          padding-right:15px;
+          text-decoration:none;
+          text-shadow:1px 1px 0px #2f6627;
+          -moz-border-radius:8px;
+          -webkit-border-radius:8px;
+          border-radius:8px;
+          transition: all 0.2s ease-in-out;
+      }
+      #toolbar__ID a:hover {
+        background-color:#525959;
+      }
+      #nav__ID{
+          padding:6px 26px 6px 6px;
+          color: #202727;
+          display:table-cell;
+      }
+      #nav__ID li{
+          cursor:pointer;
+      }
+      #nav__ID span{
+          margin:3px;
+          display:block;
+          font-weight:700;
+      }
+      #not_allowed__ID{
+          color:#888!Important;
+          cursor:not-allowed!Important;
+      }
+      #nav__ID a{
+          -moz-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out;
+          -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+      }
+      #nav__ID a:hover {
+          background: #687A7B;
+          color: #fff;
+          cursor:pointer;
+      }
+      .tab__ID{
+          width:30px;
+          display:inline-block;
+      }
+</style>

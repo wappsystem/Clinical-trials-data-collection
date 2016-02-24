@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
+<script>
+$vm={}; $VmAPI={};
+$(document).ready(function(){
+    //--------------------------------------------------------
+    $vm.server		    ="development";
+    $vm.repository      ="wappsystem/Clinical-trials-data-collection";
+    $vm.hosting_path    =window.location.protocol+'//'+window.location.host;
+    $vm.common          =window.location.protocol+'//'+window.location.host;
+    $VmAPI.api_base	    ="https://cbs.wappsystem.com/dev/";
+    //--------------------------------------------------------
+    $vm.debug		      =true;
+    $vm.debug_message	  =true;
+    //--------------------------------------------------------
+    var start=function(){
+    	var url=$vm.url('__BASE__/'+$vm.repository+'/version.html?_=')+new Date().getTime();
+    	if($vm.debug_message===true) console.log('load module from '+url);
+        $.get(url,function(new_ver){ $vm.version=new_ver.trim(); load_vmapi();},'text')
+    }
+    //--------------------------------------------------------
+    var load_vmapi   =function(){ load_js($vm.url('__BASE__/vmiis/VmAPI/distribution/vmapi.min.js'),load_vm);	}
+    var load_vm      =function(){ load_js($vm.url('__BASE__/vmiis/VmFramework/distribution/vmframework.min.js'),load_index_js);}
+    var load_index_js=function(){ load_js($vm.url('__BASE__/'+$vm.repository+'/index.js'),init);}
+    var init         =function(){ $vm.init({callback:function(){$vm.load_first_module({url:$vm.module_list['layout'][1],src:$vm.module_list['layout'][2]}); last();  }});	}
+    //--------------------------------------------------------
+    var load_js=function(url,next){
+    	var ver=localStorage.getItem(url+"_ver");
+    	var txt=localStorage.getItem(url+"_txt");
+    	//------------------------------------------
+    	if(ver!=$vm.version || txt===null || $vm.debug===true){
+            if($vm.debug_message===true) console.log('load module from '+url);
+                $.get(url+'?_='+$vm.version,function(data){
+                localStorage.setItem(url+"_txt",data);
+                localStorage.setItem(url+"_ver",$vm.version);
+    			$('head').append('<scr'+'ipt>'+data+'</scr'+'ipt>');
+                next();
+    	    },'text');
+        }
+    	else{ $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>'); next(); }
+        //------------------------------------------
+    }
+    //--------------------------------------------------------
+    $vm.url=function(text){
+        var re0=new RegExp('https://raw.githubusercontent.com', 'g');    text=text.replace(re0,$vm.common);
+        var re1=new RegExp('__BASE__/'+$vm.repository, 'g');             text=text.replace(re1,$vm.hosting_path+'/'+$vm.repository);
+        var re2=new RegExp('__BASE__', 'g'); 	                         text=text.replace(re2,$vm.common);
+        var re3=new RegExp('__VER__', 'g'); 	                         text=text.replace(re3,$vm.version);
+        var re4=new RegExp('/master/', 'g');	                         text=text.replace(re4,'/');
+        var re5=new RegExp('/blob/', 'g');		                         text=text.replace(re5,'/blob/master/');
+    	return text;
+    }
+    //--------------------------------------------------------
+    start();
+    //--------------------------------------------------------
+});
+</script>

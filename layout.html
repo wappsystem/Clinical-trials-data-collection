@@ -1,0 +1,265 @@
+<section>
+      <div>
+          <a class="control_next"></a>
+          <a class="control_prev"></a>
+          <div id="slider__ID">
+          	<ul>
+          		<li style="background: url('__BASE__/wappsystem/Clinical-trials-data-collection/images/bk1.jpg') no-repeat bottom center; background-size: cover;"></li>
+          		<li style="background: url('__BASE__/wappsystem/Clinical-trials-data-collection/images/bk1.jpg') no-repeat bottom center; background-size: cover;"></li>
+                <li style="background: url('__BASE__/wappsystem/Clinical-trials-data-collection/images/bk1.jpg') no-repeat bottom center; background-size: cover;"></li>
+          	</ul>
+          </div>
+      </div>
+      <header id=header__ID>
+      <div id=d1228__ID>
+            <div id=logo_label__ID><h2>Clinical Trials Data Collection</h2><h3>Software as a Service</h3></div>
+            <nav id=nav__ID>
+            <ul>
+                <li data-name=home id=home_page>Home</li>
+                <li data-name=navigation>Clinical Trials Data Collection</li>
+            	<li><label id=sign__ID>Account</label>
+                    <ul>
+                        <li id=signin__ID data-b='1'>Sign In</li>
+                        <li id=signout__ID data-b='2'>Sign Out</li>
+                        <li data-b=5>Clear Cache</li>
+                    </ul>
+            	</li>
+            </ul>
+            </nav>
+      </div>
+      </header>
+      <div id=content_slot__ID></div>
+      <footer class=main_footer id=footer__ID></footer>
+      <div id=_help_ style='cursor:pointer;display:none; position: absolute; left:3px; top:3px; width:220px;height;60px;font-size:9px'
+          title='Key:Ctrl + mouse:double click will show red border for each module. Key:Alt + mouse:double click on any module will open the source code window of the module.'>
+          How to see code behind?
+      </div>
+</section>
+<script>
+    function F__ID(){
+        //------------------------------------
+        $('#footer__ID').html('Copyright © '+(new Date()).getFullYear()+', Wappsystem Pty Ltd'); document.title="Clinical Trials Data Collection";
+        //------------------------------------
+        var on_load=function(){
+            layout_resize();
+            /*
+            setInterval(function () {
+                moveRight();
+            }, 6000);
+            */
+            login_changed();
+        };
+        //------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/navigation/main_layout_process.js
+        //------------------------------------
+    }
+</script>
+<style>
+      #background__ID{
+          position:absolute;
+          z-index:-10;
+          width:100%;
+          height:100%;
+      }
+      html,body {
+      	margin:0;
+      	padding:0;
+      	height:100%;
+      	width:100%;
+      	font: 14px Helvetica, Arial, sans-serif;
+      }
+      #content_slot__ID{
+          margin-left:auto;
+          margin-right:auto;
+      }
+      #header__ID{
+          height:100px;
+          background:rgba(104,116,125,0.5);
+      }
+      #d1228__ID{
+          margin-left:auto;
+          margin-right:auto;
+          max-width:1228px;
+          position: relative;
+      }
+      #logo__ID{
+          left: 23px;
+          top: 3px;
+          position: absolute;
+          margin: 0;
+          display: inline-block;
+      }
+      #logo_image__ID{
+          width:380px;
+          height:94px;
+          /*border-radius: 47px;*/
+          background: url('__BASE__/wappsystem/Car-Booking/images/logo.jpg') no-repeat top center;
+          background-size: contain;
+          float:left;
+      }
+      #logo_label__ID{
+          color:#fff;
+          padding-left:10px;
+          float:left;
+          padding-top:18px;
+      }
+      #logo_label__ID h2{
+          font: 200% Arial;
+      }
+      #logo_label__ID h3{
+          font: 88% Arial;
+      }
+      #footer__ID {
+      	width:100%;
+      	height:20px;
+          text-align:center;
+          font:95%/20px arial;
+          color:#fff;
+          background-color:#22222F;
+      }
+
+      #nav__ID{
+          padding: 40px 80px 0 0;
+      	margin:0;
+          float: right;
+          opacity: 1;
+          position: relative;
+      }
+      #nav__ID>ul{
+          list-style: none;
+          overflow: hidden;
+          float: left;
+      }
+      #nav__ID>ul:after {
+      	content: ""; clear: both;
+      	display: block;
+      }
+      #nav__ID>ul>li{
+          color:#ffffff;
+          float: left;
+          margin-left: 50px;
+          white-space: nowrap;
+          cursor:pointer;
+      }
+      #nav__ID>ul>li:hover{
+          color:#f00;
+      }
+      #nav__ID>ul>li>ul{
+          display:none;
+          width:auto;
+      	background: #5f6975;
+      	padding: 0;
+      	position: absolute;
+      	list-style: none;
+          z-index:999;
+      }
+      #nav__ID>ul>li>ul>li{
+      	float: none;
+      	border-top: 1px solid #6b727c;
+      	border-bottom: 1px solid #575f6a;
+      	position: relative;
+      	padding: 5px 12px;
+      	color: #fff;
+      	text-decoration: none;
+      }
+      #nav__ID>ul>li>ul>li:hover{
+      	background: #4b545f;
+      	background: -moz-linear-gradient(top, #3f4954 0%, #4f5964 40%);
+      	background: -o-linear-gradient(top, #3f4954 0%, #4f5964 40%);
+      	background: -webkit-linear-gradient(top, #3f4954 0%, #4f5964 40%);
+      	background: linear-gradient(top, #3f4954 0%, #4f5964 40%);
+      	color: #0ff;
+      }
+      #nav__ID>ul>li:hover>ul{
+          display:block;
+      }
+      #nav__ID ul>li>div{
+          display:none;
+          width:auto;
+      	background: #5f6975;
+      	border-radius: 0px;
+      	padding: 0;
+      	position: absolute;
+      	margin-left:-100px;
+          z-index:999;
+      }
+      #nav__ID ul>li>div div{
+          display:table-cell;
+          padding: 10px;
+          line-height:25px;
+          cursor:default;
+          color:#fff;
+      }
+      #nav__ID ul>li:hover>div{
+          display:block;
+      }
+      #nav__ID ul li:hover div>p:hover{
+          cursor:pointer;
+      	background: #4b545f;
+      	background: linear-gradient(top, #3f4954 0%,#4f5964 40%);
+      	background: -moz-linear-gradient(top, #3f4954 0%,#4f5964 40%);
+      	background: -webkit-linear-gradient(top, #3f4954 0%,#4f5964 40%);
+      	color: #0ff;
+      }
+      #slider__ID {
+          position:absolute;
+          z-index:-2;
+          width:100%;
+          height:100%;
+          overflow-x: hidden;
+      }
+      #slider__ID ul {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width:200%;
+        list-style: none;
+        float:left;
+        display:flex;
+        overflow-x: hidden;
+      }
+      #slider__ID ul li {
+        position: relative;
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 0;
+        width:100%;
+        height: 100%;
+        background: #ccc;
+        text-align: center;
+        line-height: 300px;
+        overflow-x: hidden;
+          background-size: cover;
+      }
+      .control_prev, .control_next {
+        position: absolute;
+        top: 45%;
+        z-index: 999;
+        display: block;
+        padding: 20px 20px;
+        width: auto;
+        height: auto;
+        background: #2a2a2a;
+        color: #aaa;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 190%;
+        opacity: 0.2;
+        cursor: pointer;
+      }
+      .control_prev:hover, .control_next:hover {
+        opacity: 1;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+      }
+      .control_prev {
+        border-radius: 0 2px 2px 0;
+      }
+      .control_next {
+        right: 0;
+        border-radius: 2px 0 0 2px;
+      }
+</style>
